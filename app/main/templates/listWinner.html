@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %} Title {% endblock %}
+{% block content %}
+
+<div class="list">
+<!--<form method="POST" action="/selectWinner">-->
+  <a class="btn btn-success" href="{{ url_for('main.downloadReport') }}" role="button">Générer Excel</a>
+<table  class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Prenom</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Numero de Compte</th>
+      <th scope="col">Téléphone</th>
+      <th scope="col">Montant</th>
+    </tr>
+  </thead>
+  {% for item in data.items %}
+  <tbody>
+    <tr>
+
+      <td>{{item.firstname}}</td>
+      <td>{{item.lastname}}</td>
+      <td>{{item.num_account}}</td>
+      <td>{{item.phone}}</td>
+      <td>{{item.amount}}</td>
+    </tr>
+  </tbody>
+             {% endfor %}
+</table>
+
+<!--</form>-->
+    <!-- Pagination Links-->
+<div class="text-right">
+    <a href="{{ url_for('main.getWinner', page=data.prev_num) }}"
+       class="btn btn-outline-dark
+       {% if data.page == 1 %}disabled{% endif %}">
+        &laquo;
+    </a>
+<!-- Loop through the number of pages to display a link for each-->
+    {% for page_num in data.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+{% if page_num %}
+<!-- Check for the active page and set the link to "Active"-->
+            {% if data.page == page_num %}
+            <a href="{{ url_for('main.getWinner', page=page_num) }}"
+               class="btn btn-dark">
+                {{ page_num }}
+            </a>
+            {% else %}
+            <a href="{{ url_for('main.getWinner', page=page_num) }}"
+               class="btn btn-outline-dark">
+                {{ page_num }}
+            </a>
+            {% endif %}
+        {% else %}
+            ...
+        {% endif %}
+    {% endfor %}
+    <a href="{{ url_for('main.getWinner', page=data.next_num) }}"
+       class="btn btn-outline-dark
+       {% if data.page == data.pages %}disabled{% endif %}">
+        &raquo;
+    </a>
+</div>
+<p class="text-right mt-3">
+    {{ data.page }} of {{ data.pages }}
+</p>
+</div>
+
+
+{% endblock %}

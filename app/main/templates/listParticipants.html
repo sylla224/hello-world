@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %} Title {% endblock %}
+
+{% block content %}
+
+
+<div class="list">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+            {% if category == 'message' %}
+              <div class="alert alert-success" role="alert">
+            {% else %}
+              <div class="alert alert-{{ category }}" role="alert">
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+            {% endif %}
+              <div class="message">{{ message }}</div>
+            </div>
+
+        {% endfor %}
+      {% endif %}
+  {% endwith %}
+<div id="loading"></div>
+
+<form method="POST" id="testForm" action="/selectWinner">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Prenom</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Numero de Compte</th>
+      <th scope="col">Telephone</th>
+      <th scope="col">Montant</th>
+    </tr>
+  </thead>
+  {% for item in data.items %}
+  <tbody>
+    <tr>
+
+      <td>{{item.firstname}}</td>
+      <td>{{item.lastname}}</td>
+      <td>{{item.num_account}}</td>
+      <td>{{item.phone}}</td>
+      <td>{{item.amount}}</td>
+    </tr>
+  </tbody>
+             {% endfor %}
+</table>
+
+<button type="submit" id="btnFetch" value="Submit" class="btn btn-success">Selectionner</button>
+</form>
+
+<!-- Pagination Links-->
+<div class="text-right">
+    <a href="{{ url_for('main.getParticipants', page=data.prev_num) }}"
+       class="btn btn-outline-dark
+       {% if data.page == 1 %}disabled{% endif %}">
+        &laquo;
+    </a>
+<!-- Loop through the number of pages to display a link for each-->
+    {% for page_num in data.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+{% if page_num %}
+<!-- Check for the active page and set the link to "Active"-->
+            {% if data.page == page_num %}
+            <a href="{{ url_for('main.getParticipants', page=page_num) }}"
+               class="btn btn-dark">
+                {{ page_num }}
+            </a>
+            {% else %}
+            <a href="{{ url_for('main.getParticipants', page=page_num) }}"
+               class="btn btn-outline-dark">
+                {{ page_num }}
+            </a>
+            {% endif %}
+        {% else %}
+            ...
+        {% endif %}
+    {% endfor %}
+    <a href="{{ url_for('main.getParticipants', page=data.next_num) }}"
+       class="btn btn-outline-dark
+       {% if data.page == data.pages %}disabled{% endif %}">
+        &raquo;
+    </a>
+</div>
+<p class="text-right mt-3">
+    {{ data.page }} of {{ data.pages }}
+</p>
+
+</div>
+
+<script>
+$(document).ready(function() {
+    $("#btnFetch").click(function() {
+      // disable button
+      $(this).prop("disabled", true);
+      // add spinner to button
+      $(this).html(
+        `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`
+      );
+
+setTimeout(function(){
+    /*submit the form after 5 secs*/
+    setTimeout(document.testForm.submit(), 6000);
+})
+
+    });
+});
+</script>
+
+{% endblock %}
