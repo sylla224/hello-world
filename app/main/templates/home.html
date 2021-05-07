@@ -11,14 +11,23 @@
 <div class="form mt-5 ml-5 pl-5">
     <!--<div class="card1">-->
     <form method="POST" action="/upload" enctype="multipart/form-data">
-    <div class="btn  float-left" >
-      <input type="file" name="file">
+<div class="file-upload">
+  <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Ajouter Fichier</button>
+
+  <div class="image-upload-wrap">
+    <input class="file-upload-input" type='file' onchange="readURL(this);" name="file"/>
+    <div class="drag-text">
+      <h3>Clicker ici pour choisir le fichier </h3>
     </div>
-    <div class="wrapper">
-        <i class="fas fa-cloud-upload-alt fa-lg ml-5 grey-text" aria-hidden="true" ></i>&nbsp;&nbsp;
-      <input class="file-path validate my-3 " type="text" style="border:none;" placeholder="Upload your file ..."  ><br/><br/>
-        <button type="submit" value="Submit" class="btn btn-success">Save</button>
+  </div>
+  <div class="file-upload-content">
+    <div class="image-title-wrap">
+      <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+      <br/><br/>
+        <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )" value="submit">Save</button>
     </div>
+  </div>
+</div>
     </form>
         <!--</div>-->
 </div>
