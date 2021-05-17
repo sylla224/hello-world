@@ -48,8 +48,24 @@
              {% endfor %}
 </table>
 
-<button type="submit" id="btnFetch" value="Submit" class="btn btn-success">Selectionner</button>
+<button type="submit" value="Submit" class="btn btn-success" data-toggle="modal" data-target="#loadMe">Selectionner</button>
+
 </form>
+<!-- Modal -->
+<div class="modal fade" id="loadMe" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="loadMeLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <div class="loader"></div>
+        <div clas="loader-txt">
+          <p> Dans 30 secondes nous allons sélectionner un client. <br><br><small> Etes-vous prêt... #UBA</small></p>
+            <img class="img-gif" src="{{ url_for('static', filename='gif-time.gif') }}" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <!-- Pagination Links-->
 <div class="text-right">
@@ -91,21 +107,17 @@
 
 <script>
 $(document).ready(function() {
-    $("#btnFetch").click(function() {
-      // disable button
-      $(this).prop("disabled", true);
-      // add spinner to button
-      $(this).html(
-        `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`
-      );
-
-setTimeout(function(){
-    /*submit the form after 5 secs*/
-    setTimeout(document.testForm.submit(), 6000);
-})
-
+    $('#loadMe').on('shown.bs.modal', function () {
+    $("#loadMe").modal({
+      backdrop: "static", //remove ability to close modal with click
+      keyboard: false, //remove option to close with keyboard
+      show: true //Display loader!
     });
+    setTimeout(function() {
+      $("#loadMe").modal("hide");
+    }, 30000);
+})
 });
 </script>
-
+</div>
 {% endblock %}

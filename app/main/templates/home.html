@@ -1,3 +1,5 @@
+ {% if current_user.is_authenticated() %}
+
 {% extends "base.html" %}
 
 {% block title %} Title {% endblock %}
@@ -7,11 +9,10 @@
 <!--      <p><input type="file" name="file"></p>-->
 <!--      <p><input type="submit" value="Submit"></p>-->
 <!--    </form>-->
-
 <div class="form mt-5 ml-5 pl-5">
     <!--<div class="card1">-->
     <form method="POST" action="/upload" enctype="multipart/form-data">
-<div class="file-upload">
+<div class="file-upload shadow bg-white rounded">
   <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Ajouter Fichier</button>
 
   <div class="image-upload-wrap">
@@ -24,13 +25,16 @@
     <div class="image-title-wrap">
       <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
       <br/><br/>
-        <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )" value="submit">Save</button>
+        <button class="file-upload-btn" type="submit" value="submit">Save</button>
     </div>
   </div>
 </div>
     </form>
         <!--</div>-->
 </div>
-
 <!--/.Card-->
 {% endblock %}
+
+ {% else %}
+ {% extends "login.html" %}
+ {% endif %}

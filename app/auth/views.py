@@ -1,3 +1,4 @@
+import requests
 from flask import Blueprint, render_template, flash, redirect, url_for, session, g, make_response, current_app, request
 from app.auth.forms import RegistrationForm
 from app import db
@@ -5,6 +6,8 @@ from app.models import User
 from app.auth.forms import LoginForm
 from werkzeug.local import LocalProxy
 from itsdangerous.url_safe import URLSafeSerializer
+from requests.auth import HTTPBasicAuth, HTTPDigestAuth
+from requests_ntlm import HttpNtlmAuth
 
 auth = Blueprint("auth", __name__, template_folder="templates")
 
@@ -21,12 +24,16 @@ def login():
         username = form.username.data
         password = form.password.data
 
-        user = User.query.filter_by(username=username).first()
+        user = requests.get('http://10.100.5.195:8017/api/ADUser/AuthenticateUser?username='+username+'&password='+password, auth=(username, password))
+        print(user.text)
 
-        if user:
+        check_user = User.query.filter_by(username=username).first()
 
-            if user.check_password(password):
-                #flash("You are successfully logged in.", "success")
+        if user.text=="true":
+            if not check_user:
+                user = User(username, username+'@ubagroup.com', password, 'Default', 'Default')
+                db.session.add(user)
+                db.session.commit()
                 login_user(user)
                 # Une fois l'utilisateur connecté on vérifie si remember est actif
                 if form.remember_me.data:
@@ -35,15 +42,33 @@ def login():
                     remember_token = user.get_remember_token()
                     db.session.commit()
                     # Stocker les cookies dans des variables
-                    resp.set_cookie('remember_token', encrypt_cookie(remember_token), max_age=60*10)
-                    resp.set_cookie('user_id', encrypt_cookie(user.id), max_age=60*10)
+                    resp.set_cookie('remember_token', encrypt_cookie(remember_token), max_age=60 * 2)
+                    resp.set_cookie('user_id', encrypt_cookie(user.id), max_age=60 * 2)
                     return resp
-                return redirect(url_for("main.home"))
+                else:
+                    resp1 = make_response(redirect(url_for("main.home")))
+                    resp1.set_cookie('user_id', encrypt_cookie(user.id), max_age=60 * 2)
+                    return resp1
             else:
-                form.password.errors.append("The password is not correct.")
+                # Une fois l'utilisateur connecté on vérifie si remember est actif
+                user = User.query.filter_by(username=username).first()
+                if form.remember_me.data:
+                    resp = make_response(redirect(url_for("main.home")))
+                    # Envoyer les cookies au navigateur
+                    remember_token = user.get_remember_token()
+                    db.session.commit()
+                    # Stocker les cookies dans des variables
+                    resp.set_cookie('remember_token', encrypt_cookie(remember_token), max_age=60 * 60)
+                    resp.set_cookie('user_id', encrypt_cookie(user.id), max_age=60 * 60)
+                    return resp
+                else:
+                    resp1 = make_response(redirect(url_for("main.home")))
+                    #db.session.commit()
+                    resp1.set_cookie('user_id', encrypt_cookie(user.id), max_age=60 * 60)
+                    return resp1
         else:
-            form.username.errors.append("The username is not correct.")
-
+            flash("The username or password is not correct.")
+            return render_template("login.html", form=form)
     return render_template("login.html", form=form)
 
 @auth.route("/logout")
@@ -55,9 +80,10 @@ def logout():
         resp = make_response(redirect(url_for("main.home")))
         resp.set_cookie("remember_token", "", max_age=0)
         resp.set_cookie("user_id", "", max_age=0)
+        resp.set_cookie("session", "", max_age=0)
         logout_user()
         flash("You are logged out", "success")
-        return render_template("login.html", form=form)
+        return resp
         #flash("You are logged out", "success")
     return redirect(url_for("main.home"))
 

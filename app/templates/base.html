@@ -2,16 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/jpg" src="{{ url_for('static', filename='uba-banque.jpg') }}">
     <link rel="stylesheet" href="./static/css/bootstrap.min.css">
     <link rel="stylesheet" href="./static/css/bootstrap.css">
     <link rel="stylesheet" href="./static/css/material-design-iconic-font.min.css">
     <link rel="stylesheet" href="./static/css/material-design-iconic-font.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/jquery.dataTables.min.css') }}"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.dataTables.min.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/game.js') }}"></script>
-    <title>{% block title %}{% endblock %}</title>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.3.1.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+    <title>{% block title %}Game{% endblock %}</title>
 </head>
 <body>
     <div id="viewport">
@@ -22,7 +24,7 @@
     </header>
     <ul class="nav">
       <li>
-        <a href="{{ url_for('main.home') }}">
+        <a href="{{ url_for('main.home') }}" >
           <i class="zmdi zmdi-view-dashboard"></i> Dashboard
         </a>
       </li>
@@ -34,11 +36,6 @@
       <li>
         <a href="{{ url_for('main.getWinner') }}">
           <i class="zmdi zmdi-widgets"></i> Gagnants
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class="zmdi zmdi-calendar"></i> Events
         </a>
       </li>
     </ul>
@@ -54,8 +51,8 @@
 <!--            </a>-->
 <!--          </li>-->
           {% if current_user.is_authenticated() %}
-              <li class="nav-item">
-                <a href="#" class="nav-link">{{ current_user.username }}</a>
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link" class="dropdown-toggle" data-toggle="dropdown">{{ current_user.username }}</a>
                   <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
               </li>
               {% else %}
@@ -71,28 +68,6 @@
 </div>
     {% block content %}
     {% endblock %}
-<script>
-    $(document).ready(function() {
-        $('#myTable').DataTable({
-            'processing': true,
-            'serverSide': true,
-            'serverMethod': 'post',
-            'ajax': {
-                'url': '/winner'
-            },
-            'lengthMenu': [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
-            searching: true,
-            sort: false,
-            "serverSide": true,
-            'columns': [
-                        { data: 'firstname' },
-                        { data: 'lastname' },
-                        { data: 'num_account' },
-                        { data: 'somme' },
-            ]
-        });
-    });
-</script>
 </body>
 
 </html>
