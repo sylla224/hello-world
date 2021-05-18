@@ -30,7 +30,7 @@ def uploadFiles():
             participant = Participants.query.all()
             winner = Winner.query.all()
             for row in participant:
-                archive = Archive(row.firstname, row.lastname, row.num_account, row.phone, row.amount)
+                archive = Archive(row.visionOuc, row.oucDescription, row.schemeCode, row.accountNo, row.accountName, row.accountOpenDate, row.phoneNumber)
                 db.session.add(archive)
                 db.session.query(Participants).delete()
                 db.session.query(Winner).delete()
@@ -42,12 +42,12 @@ def uploadFiles():
 
 def parseCSV(filePath):
     # CVS Column Names
-    col_names = ['firstname', 'lastname', 'num_account', 'phone', 'somme']
+    col_names = ['visionOuc', 'oucDescription', 'schemeCode', 'accountNo', 'accountName', 'accountOpenDate', 'phoneNumber']
     # Use Pandas to parse the CSV file
     csvData = pd.read_csv(filePath, names=col_names, sep=';', header=0)
     # Loop through the Rows
     for i, row in csvData.iterrows():
-        participant = Participants(row['firstname'], row['lastname'], row['num_account'], row['phone'], row['somme'])
+        participant = Participants(row['visionOuc'], row['oucDescription'], row['schemeCode'], row['accountNo'], row['accountName'], row['accountOpenDate'], row['phoneNumber'])
         db.session.add(participant)
         db.session.commit()
 
@@ -75,19 +75,23 @@ def downloadReport():
         workbook = xlwt.Workbook()
         sh = workbook.add_sheet('Vainqueur')
 
-        sh.write(0, 0, 'Prenom')
-        sh.write(0, 1, 'Nom')
-        sh.write(0, 2, 'Numéro de Compte')
-        sh.write(0, 3, 'Téléphone')
-        sh.write(0, 4, 'Montant')
+        sh.write(0, 0, 'VISION_OUC')
+        sh.write(0, 1, 'OUC_DESCRIPTION')
+        sh.write(0, 2, 'SCHEME_CODE')
+        sh.write(0, 3, 'ACCOUNT_NO')
+        sh.write(0, 4, 'ACCOUNT_NAME')
+        sh.write(0, 5, 'ACCOUNT_OPEN_DATE')
+        sh.write(0, 6, 'PHONE_NUMBER')
 
         idx = 0
         for item in data:
-            sh.write(idx + 1, 0, item.firstname)
-            sh.write(idx + 1, 1, item.lastname)
-            sh.write(idx + 1, 2, item.num_account)
-            sh.write(idx + 1, 3, item.phone)
-            sh.write(idx + 1, 4, item.amount)
+            sh.write(idx + 1, 0, item.visionOuc)
+            sh.write(idx + 1, 1, item.oucDescription)
+            sh.write(idx + 1, 2, item.schemeCode)
+            sh.write(idx + 1, 3, item.accountNo)
+            sh.write(idx + 1, 4, item.accountName)
+            sh.write(idx + 1, 5, item.accountOpenDate)
+            sh.write(idx + 1, 6, item.phoneNumber)
             idx += 1
 
         workbook.save(output)
@@ -117,17 +121,16 @@ def winner():
     if request.cookies.get("user_id"):
         time.sleep(30)
         data = Participants.query.all()
-        my_list = [row.num_account for row in data]
+        my_list = [row.accountNo for row in data]
         elt = random.choice(my_list)
-        winner = Participants.query.filter_by(num_account=elt).first()
-        print(winner.firstname)
-        data_winner = Winner(winner.firstname, winner.lastname, winner.num_account, winner.phone, winner.amount)
-        winnerArchive = WinnerArchive(winner.firstname, winner.lastname, winner.num_account, winner.phone, winner.amount)
+        winner = Participants.query.filter_by(accountNo=elt).first()
+        data_winner = Winner(winner.visionOuc, winner.oucDescription, winner.schemeCode, winner.accountNo, winner.accountName, winner.accountOpenDate, winner.phoneNumber)
+        winnerArchive = WinnerArchive(winner.visionOuc, winner.oucDescription, winner.schemeCode, winner.accountNo, winner.accountName, winner.accountOpenDate, winner.phoneNumber)
         db.session.add(data_winner)
         db.session.add(winnerArchive)
-        db.session.query(Participants).filter_by(num_account=elt).delete()
+        db.session.query(Participants).filter_by(accountNo=elt).delete()
         db.session.commit()
-        flash('Le Numéro de  compte ' + winner.num_account + ' a été selectionné')
+        flash('Le Numéro de  compte ' + winner.accountNo + ' a été selectionné')
         return redirect(url_for('main.getParticipants'))
     return redirect(url_for('auth.login'))
 

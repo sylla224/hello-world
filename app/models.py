@@ -88,66 +88,85 @@ class Participants(db.Model):
     __tablename__ = "participants"
 
     id = db.Column(db.Integer(), primary_key=True)
-    firstname = db.Column(db.String(64), unique=False, nullable=True)
-    lastname = db.Column(db.String(64), unique=False, nullable=True)
-    num_account = db.Column(db.String(64), unique=False, nullable=True)
-    phone = db.Column(db.String(64), unique=False, nullable=True)
-    amount = db.Column(db.String(64), unique=False, nullable=True)
+    visionOuc = db.Column(db.String(64), unique=False, nullable=True)
+    oucDescription = db.Column(db.String(64), unique=False, nullable=True)
+    schemeCode = db.Column(db.String(64), unique=False, nullable=True)
+    accountNo = db.Column(db.String(64), unique=False, nullable=True)
+    accountName = db.Column(db.String(64), unique=False, nullable=True)
+    accountOpenDate = db.Column(db.String(64), unique=False, nullable=True)
+    phoneNumber = db.Column(db.String(64), unique=False, nullable=True)
 
-    def __init__(self, firstname="", lastname="", num_account="", phone="", amount=""):
-        self.firstname = firstname
-        self.lastname = lastname
-        self.num_account = num_account
-        self.phone = phone
-        self.amount = amount
+    def __init__(self, visionOuc="", oucDescription="", schemeCode="", accountNo="", accountName="", accountOpenDate="", phoneNumber=""):
+        self.visionOuc = visionOuc
+        self.oucDescription = oucDescription
+        self.schemeCode = schemeCode
+        self.accountNo = accountNo
+        self.accountName = accountName
+        self.accountOpenDate = accountOpenDate
+        self.phoneNumber = phoneNumber
 
 class Winner(db.Model):
     __tablename__ = "winner"
 
     id = db.Column(db.Integer(), primary_key=True)
-    firstname = db.Column(db.String(64), unique=False, nullable=True)
-    lastname = db.Column(db.String(64), unique=False, nullable=True)
-    num_account = db.Column(db.String(64), unique=False, nullable=True)
-    phone = db.Column(db.String(64), unique=False, nullable=True)
-    amount = db.Column(db.String(64), unique=False, nullable=True)
+    visionOuc = db.Column(db.String(64), unique=False, nullable=True)
+    oucDescription = db.Column(db.String(64), unique=False, nullable=True)
+    schemeCode = db.Column(db.String(64), unique=False, nullable=True)
+    accountNo = db.Column(db.String(64), unique=False, nullable=True)
+    accountName = db.Column(db.String(64), unique=False, nullable=True)
+    accountOpenDate = db.Column(db.String(64), unique=False, nullable=True)
+    phoneNumber = db.Column(db.String(64), unique=False, nullable=True)
 
-    def __init__(self, firstname="", lastname="", num_account="", phone="", amount=""):
-        self.firstname = firstname
-        self.lastname = lastname
-        self.num_account = num_account
-        self.phone = phone
-        self.amount = amount
+    def __init__(self, visionOuc="", oucDescription="", schemeCode="", accountNo="", accountName="", accountOpenDate="",
+                 phoneNumber=""):
+        self.visionOuc = visionOuc
+        self.oucDescription = oucDescription
+        self.schemeCode = schemeCode
+        self.accountNo = accountNo
+        self.accountName = accountName
+        self.accountOpenDate = accountOpenDate
+        self.phoneNumber = phoneNumber
 
 class Archive(db.Model):
     __tablename__ = "archive"
 
     id = db.Column(db.Integer(), primary_key=True)
-    firstname = db.Column(db.String(64), unique=False, nullable=True)
-    lastname = db.Column(db.String(64), unique=False, nullable=True)
-    num_account = db.Column(db.String(64), unique=False, nullable=True)
-    phone = db.Column(db.String(64), unique=False, nullable=True)
-    amount = db.Column(db.String(64), unique=False, nullable=True)
+    visionOuc = db.Column(db.String(64), unique=False, nullable=True)
+    oucDescription = db.Column(db.String(64), unique=False, nullable=True)
+    schemeCode = db.Column(db.String(64), unique=False, nullable=True)
+    accountNo = db.Column(db.String(64), unique=False, nullable=True)
+    accountName = db.Column(db.String(64), unique=False, nullable=True)
+    accountOpenDate = db.Column(db.String(64), unique=False, nullable=True)
+    phoneNumber = db.Column(db.String(64), unique=False, nullable=True)
 
-    def __init__(self, firstname="", lastname="", num_account="", phone="", amount=""):
-        self.firstname = firstname
-        self.lastname = lastname
-        self.num_account = num_account
-        self.phone = phone
-        self.amount = amount
+    def __init__(self, visionOuc="", oucDescription="", schemeCode="", accountNo="", accountName="", accountOpenDate="",
+                 phoneNumber=""):
+        self.visionOuc = visionOuc
+        self.oucDescription = oucDescription
+        self.schemeCode = schemeCode
+        self.accountNo = accountNo
+        self.accountName = accountName
+        self.accountOpenDate = accountOpenDate
+        self.phoneNumber = phoneNumber
 
 class WinnerArchive(db.Model):
     __tablename__ = "winnerArchive"
 
     id = db.Column(db.Integer(), primary_key=True)
-    firstname = db.Column(db.String(64), unique=False, nullable=True)
-    lastname = db.Column(db.String(64), unique=False, nullable=True)
-    num_account = db.Column(db.String(64), unique=False, nullable=True)
-    phone = db.Column(db.String(64), unique=False, nullable=True)
-    amount = db.Column(db.String(64), unique=False, nullable=True)
+    visionOuc = db.Column(db.String(64), unique=False, nullable=True)
+    oucDescription = db.Column(db.String(64), unique=False, nullable=True)
+    schemeCode = db.Column(db.String(64), unique=False, nullable=True)
+    accountNo = db.Column(db.String(64), unique=False, nullable=True)
+    accountName = db.Column(db.String(64), unique=False, nullable=True)
+    accountOpenDate = db.Column(db.String(64), unique=False, nullable=True)
+    phoneNumber = db.Column(db.String(64), unique=False, nullable=True)
 
-    def __init__(self, firstname="", lastname="", num_account="", phone="", amount=""):
-        self.firstname = firstname
-        self.lastname = lastname
-        self.num_account = num_account
-        self.phone = phone
-        self.amount = amount
+    def __init__(self, visionOuc="", oucDescription="", schemeCode="", accountNo="", accountName="", accountOpenDate="",
+                 phoneNumber=""):
+        self.visionOuc = visionOuc
+        self.oucDescription = oucDescription
+        self.schemeCode = schemeCode
+        self.accountNo = accountNo
+        self.accountName = accountName
+        self.accountOpenDate = accountOpenDate
+        self.phoneNumber = phoneNumber

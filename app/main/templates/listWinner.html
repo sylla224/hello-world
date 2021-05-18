@@ -9,22 +9,21 @@
 <table  class="table table-bordered">
   <thead>
     <tr>
-      <th scope="col">Prenom</th>
-      <th scope="col">Nom</th>
-      <th scope="col">Numero de Compte</th>
-      <th scope="col">Téléphone</th>
-      <th scope="col">Montant</th>
+      <th scope="col">Vision</th>
+      <th scope="col">Scheme Code</th>
+      <th scope="col">Account Number</th>
+      <th scope="col">Account Name</th>
+      <th scope="col">Phone Number</th>
     </tr>
   </thead>
   {% for item in data.items %}
   <tbody>
     <tr>
-
-      <td>{{item.firstname}}</td>
-      <td>{{item.lastname}}</td>
-      <td>{{item.num_account}}</td>
-      <td>{{item.phone}}</td>
-      <td>{{item.amount}}</td>
+      <td>{{item.visionOuc}}</td>
+      <td>{{item.schemeCode}}</td>
+      <td>{{item.accountNo}}</td>
+      <td>{{item.accountName}}</td>
+      <td>{{item.phoneNumber}}</td>
     </tr>
   </tbody>
              {% endfor %}
