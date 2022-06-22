@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-06-22T11:36:33.041Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.0.0 Safari/537.36" etag="YOmCuBN3gPlEMnV5rk20" version="20.0.1" type="github">
+<mxfile host="app.diagrams.net" modified="2022-06-22T11:46:47.266Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.0.0 Safari/537.36" etag="NafqxNGn78amPIOWSl5o" version="20.0.1" type="github">
   <diagram id="Vqq5bdYdkwNwuRUhmMFb" name="Page-1">
     <mxGraphModel dx="782" dy="1511" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -53,6 +53,33 @@
         </mxCell>
         <mxCell id="_AYRFwqcf-ICDJ94vdFZ-19" value="&lt;b&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;MIDDLEWARE SYSTEM&lt;/font&gt;&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;rotation=-90;" vertex="1" parent="1">
           <mxGeometry x="381.25" y="-245" width="147.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_AYRFwqcf-ICDJ94vdFZ-22" value="" style="endArrow=classic;html=1;rounded=0;fontSize=15;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="_AYRFwqcf-ICDJ94vdFZ-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="540" y="-130" as="sourcePoint" />
+            <mxPoint x="590" y="-180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_AYRFwqcf-ICDJ94vdFZ-23" value="" style="endArrow=classic;html=1;rounded=0;fontSize=15;exitX=-0.017;exitY=0.843;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.988;entryY=0.62;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="_AYRFwqcf-ICDJ94vdFZ-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="418.96000000000004" y="-88.46680000000015" as="sourcePoint" />
+            <mxPoint x="372.8368499999999" y="-203.5999999999999" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_AYRFwqcf-ICDJ94vdFZ-25" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;receive data&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=15;rotation=60;" vertex="1" parent="1">
+          <mxGeometry x="350" y="-130" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_AYRFwqcf-ICDJ94vdFZ-26" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;treate data in fcub&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=15;rotation=-50;" vertex="1" parent="1">
+          <mxGeometry x="563.45" y="-198.19" width="113.16" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_AYRFwqcf-ICDJ94vdFZ-27" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;b&gt;Generate all neccesary files&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;br&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;1- inward files&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;2-outward files&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;3-tranfer files&lt;/span&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="432.5" y="-160" width="85" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="_AYRFwqcf-ICDJ94vdFZ-28" value="Background Job" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="410" y="-30" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_AYRFwqcf-ICDJ94vdFZ-29" value="Manual proces" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="420.56" y="-700" width="89.44" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
