@@ -1,23 +1,23 @@
-<mxfile host="app.diagrams.net" modified="2022-06-27T18:09:40.220Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.0.0 Safari/537.36" etag="4IxWYuuqVHGkEGriuCSt" version="20.0.3" type="github">
+<mxfile host="app.diagrams.net" modified="2022-06-27T18:21:56.058Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.0.0 Safari/537.36" etag="LGXm_FDYi-YetnjmGzYx" version="20.0.3" type="github">
   <diagram id="Dxp49Mgg5eSaCOg_foVv" name="Page-1">
     <mxGraphModel dx="782" dy="468" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="LQqIdCg6FtZ5lfM8pTCe-1" value="" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
-          <mxGeometry x="248" y="665" width="230" height="230" as="geometry" />
+        <mxCell id="LQqIdCg6FtZ5lfM8pTCe-1" value="" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#ffe6cc;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="248" y="665" width="235" height="235" as="geometry" />
         </mxCell>
         <mxCell id="LQqIdCg6FtZ5lfM8pTCe-2" value="Checkbook request App" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="158" y="684" width="90" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="LQqIdCg6FtZ5lfM8pTCe-3" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1">
+        <mxCell id="LQqIdCg6FtZ5lfM8pTCe-3" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=1;entryDx=0;entryDy=0;exitX=0.468;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="LQqIdCg6FtZ5lfM8pTCe-1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="358" y="895" as="sourcePoint" />
             <mxPoint x="357" y="665" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="LQqIdCg6FtZ5lfM8pTCe-5" value="Rib App" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="490" y="684" width="60" height="30" as="geometry" />
+          <mxGeometry x="605" y="684" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="LQqIdCg6FtZ5lfM8pTCe-6" value="Cso initiate request" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="248" y="705" width="80" height="30" as="geometry" />
@@ -27,9 +27,6 @@
         </mxCell>
         <mxCell id="LQqIdCg6FtZ5lfM8pTCe-8" value="Bsm send it to TRUVISION" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="254" y="807" width="74" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="LQqIdCg6FtZ5lfM8pTCe-9" value="Background Process to generate RIB and send it to customers" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="370" y="741" width="90" height="30" as="geometry" />
         </mxCell>
         <mxCell id="LQqIdCg6FtZ5lfM8pTCe-11" value="" style="points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image;image=img/lib/allied_telesis/computer_and_terminals/Server_Desktop.svg;" vertex="1" parent="1">
           <mxGeometry x="310" y="384" width="84.6" height="107.24" as="geometry" />
@@ -53,27 +50,27 @@
           <mxGeometry x="410" y="504" width="190" height="120" as="geometry" />
         </mxCell>
         <mxCell id="LQqIdCg6FtZ5lfM8pTCe-17" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/other/Peering_Service.svg;" vertex="1" parent="1">
-          <mxGeometry x="550" y="766.19" width="76.68" height="77.81" as="geometry" />
+          <mxGeometry x="665" y="766.19" width="76.68" height="77.81" as="geometry" />
         </mxCell>
         <mxCell id="LQqIdCg6FtZ5lfM8pTCe-18" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/other/Peering_Service.svg;" vertex="1" parent="1">
           <mxGeometry x="90" y="760.6" width="87.71" height="89" as="geometry" />
         </mxCell>
         <mxCell id="LQqIdCg6FtZ5lfM8pTCe-19" value="" style="image;html=1;image=img/lib/clip_art/computers/Laptop_128x128.png" vertex="1" parent="1">
-          <mxGeometry x="650" y="634" width="53.32" height="50" as="geometry" />
+          <mxGeometry x="765" y="634" width="53.32" height="50" as="geometry" />
         </mxCell>
         <mxCell id="LQqIdCg6FtZ5lfM8pTCe-20" value="" style="image;html=1;image=img/lib/clip_art/computers/Laptop_128x128.png" vertex="1" parent="1">
           <mxGeometry x="70" y="615" width="53.32" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="LQqIdCg6FtZ5lfM8pTCe-21" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.006;exitY=0.332;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="LQqIdCg6FtZ5lfM8pTCe-1" target="LQqIdCg6FtZ5lfM8pTCe-17">
+        <mxCell id="LQqIdCg6FtZ5lfM8pTCe-21" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.006;exitY=0.332;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" target="LQqIdCg6FtZ5lfM8pTCe-17">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="380" y="784" as="sourcePoint" />
-            <mxPoint x="430" y="734" as="targetPoint" />
+            <mxPoint x="592.3800000000001" y="741.3599999999999" as="sourcePoint" />
+            <mxPoint x="543" y="734" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="LQqIdCg6FtZ5lfM8pTCe-22" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" target="LQqIdCg6FtZ5lfM8pTCe-19">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="610" y="784" as="sourcePoint" />
-            <mxPoint x="650" y="754" as="targetPoint" />
+            <mxPoint x="725" y="784" as="sourcePoint" />
+            <mxPoint x="765" y="754" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="LQqIdCg6FtZ5lfM8pTCe-23" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.312;exitY=-0.007;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1">
@@ -90,10 +87,19 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="LQqIdCg6FtZ5lfM8pTCe-25" value="&lt;h1&gt;Email&lt;/h1&gt;&lt;p&gt;Rib file is generated and sent through internet with a secure https protocal&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="630" y="754" width="140" height="110" as="geometry" />
+          <mxGeometry x="745" y="754" width="140" height="110" as="geometry" />
         </mxCell>
         <mxCell id="LQqIdCg6FtZ5lfM8pTCe-26" value="&lt;h1&gt;Email&lt;/h1&gt;&lt;p&gt;Checkbook file is sent to vendor with a secure https protocol&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="10" y="664" width="140" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="LQqIdCg6FtZ5lfM8pTCe-29" value="" style="rounded=0;whiteSpace=wrap;html=1;rotation=90;fillColor=#ffe6cc;strokeColor=#000000;fillOpacity=100;imageHeight=24;" vertex="1" parent="1">
+          <mxGeometry x="422.95" y="725.07" width="235.12" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="LQqIdCg6FtZ5lfM8pTCe-9" value="Background Process to generate RIB and send it to customers" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="492.5" y="725" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="LQqIdCg6FtZ5lfM8pTCe-31" value="CheckBook API for Primus plus users" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="370" y="740" width="90" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
